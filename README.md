@@ -7,5 +7,6 @@
 ## Installation
 
 * Clone the repository
+* Install the requirements: `pip install -r requirements.txt`
 * Get your own API key from Dropbox by creating a new app [here](https://www.dropbox.com/developers/apps) (you will need a full Dropbox access)
 * Edit the script with your API Key and App Secret, or set the environment variables: `DUHPY_API_KEY` and `DUHPY_APP_SECRET`
