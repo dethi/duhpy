@@ -31,7 +31,7 @@ RED = '\033[91m'
 NO = '\033[0m'
 
 
-class ProcessFolder(object):
+class APICrawler(object):
     def __init__(self, client, nb_threads=10):
         self.client = client
         self.values = Queue()
@@ -130,13 +130,13 @@ def main():
 
     client = dropbox.client.DropboxClient(token)
 
-    process = ProcessFolder(client)
+    crawler = APICrawler(client)
     path_len = min(max(max(map(len, args.path)), 13), 64)
 
     print('{0:^{2}} | {1:^13}'.format('PATH', 'SIZE', path_len))
     print('{0:-<{1}}+{0:-<14}'.format('-', path_len + 1))
     for path in args.path:
-        result = process.run(path)
+        result = crawler.run(path)
         print('{0:<{2}.{2}} | {1:>13}'.format(path, sizeof_fmt(result),
                                               path_len))
     print()
